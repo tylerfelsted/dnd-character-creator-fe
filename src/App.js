@@ -1,23 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import Routes from './Routes'
+
+import BackendAPI from './api/backendAPI';
+import { BrowserRouter } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
+import jwt from 'jsonwebtoken';
+
+const CURRENT_USER_KEY = 'character-creator-user-token'
 
 function App() {
+  const [ token, setToken ] = useLocalStorage(CURRENT_USER_KEY);
+  const [ currentUser, setCurrentUser ] = useState();
+
+  useEffect(() => {
+    async function getUser() {
+      if(token){
+        console.log(token);
+        BackendAPI.setToken(token);
+        const { _id, username } = jwt.decode(token)
+        setCurrentUser({ _id, username });
+      } else {
+        BackendAPI.clearToken();
+        setCurrentUser(null);
+      }
+    }
+    getUser();
+  }, [token])
+
+  async function login(e, data) {
+    e.preventDefault();
+    try {
+      setToken(await BackendAPI.login(data));
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  async function register(e, data) {
+    e.preventDefault();
+    try {
+      setToken(await BackendAPI.register(data));
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes login={login} register={register} />
+      </BrowserRouter>
     </div>
   );
 }
