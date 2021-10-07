@@ -1,10 +1,11 @@
-import './App.css';
+// import './App.css';
 import Routes from './Routes'
 
 import BackendAPI from './api/backendAPI';
 import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
+import UserContext from './hooks/userContext';
 import jwt from 'jsonwebtoken';
 
 const CURRENT_USER_KEY = 'character-creator-user-token'
@@ -49,7 +50,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes login={login} register={register} />
+        <UserContext.Provider value={{currentUser, setCurrentUser}}>
+          <Routes login={login} register={register} />
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
