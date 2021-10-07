@@ -28,7 +28,7 @@ function CharacterDetails() {
   if(!character) return "loading...";
 
   return (
-    <RenderCharacter character={character} />
+    <RenderCharacter character={character} setCharacter={setCharacter}/>
   )
 }
 

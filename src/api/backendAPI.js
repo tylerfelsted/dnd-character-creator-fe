@@ -34,6 +34,10 @@ class BackendAPI {
     return res.characterId;
   }
 
+  static async updateCharacter(userId, characterId, updatedCharacter) {
+    await this.request(`users/${userId}/characters/${characterId}`, updatedCharacter, "patch");
+  }
+
   static async deleteCharacter(userId, characterId) {
     await this.request(`users/${userId}/characters/${characterId}`, {}, "delete");
   }

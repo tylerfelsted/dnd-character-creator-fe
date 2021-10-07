@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import AbilityScores from './characterData/AbilityScores';
 import HitPoints from './characterData/HitPoints';
 import Skills from './characterData/Skills';
 
-function RenderCharacter({ character }) {
+function RenderCharacter({ character, setCharacter }) {
   const { name, level, race, armorClass, speed, abilityScores, hitPoints } = character;
   const characterClass = character.class;
   const proficiencyBonus = Math.ceil(level/4)+1;
@@ -21,7 +22,7 @@ function RenderCharacter({ character }) {
       <div>Armor Class: {armorClass}</div>
       <div>Initiative: {(abilityModifiers.dex > 0) ? '+' : ''}{abilityModifiers.dex}</div>
       <div>Speed: {speed}ft</div>
-      <HitPoints hitPoints={hitPoints} />
+      <HitPoints hitPoints={hitPoints} character={character} setCharacter={setCharacter} />
       <AbilityScores abilityScores={abilityScores} abilityModifiers={abilityModifiers}/>
       <Skills abilityModifiers={abilityModifiers}/>
     </Container>
