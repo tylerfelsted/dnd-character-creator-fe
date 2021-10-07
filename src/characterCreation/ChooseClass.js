@@ -23,11 +23,13 @@ function ChooseClass({ formData, setFormData }) {
   if(!classOptions) return 'loading...'
 
   return (
-    <select name="class" value={formData.class} onChange={handleChange}>
-      {classOptions.map(o => (
-        <option key={o.index} value={o.name}>{o.name}</option>
-      ))}
-    </select>
+    <>
+      <select name="class" value={formData.class} onChange={handleChange}>
+        {classOptions.map(o => (
+          <option key={o.index} value={o.name}>{o.name}</option>
+        ))}
+      </select>
+    </>
   )
 }
 

@@ -56,10 +56,10 @@ function CreateCharacter() {
       <Form onSubmit={handleSubmit}>
         <Input id="name" label="Name" type="text" value={formData.name} handleChange={handleChange}/>
         <Input id="level" label="Level" type="number" value={formData.level} handleChange={handleChange}/>
-        <Input id="hitPoints" label="Hit Points" type="number" value={formData.hitPoints} handleChange={handleChange} />
-        <Input id="armorClass" label="Armor Class" type="number" value={formData.armorClass} handleChange={handleChange} />
         <ChooseRace formData={formData} setFormData={setFormData} />
         <ChooseClass formData={formData} setFormData={setFormData} />
+        <Input id="hitPoints" label="Hit Points" type="number" value={formData.hitPoints} handleChange={handleChange} />
+        <Input id="armorClass" label="Armor Class" type="number" value={formData.armorClass} handleChange={handleChange} />
         <ChooseAbilityScores formData={abilityScores} setFormData={setAbilityScores} />
         <Button type="submit">Create Character!</Button>
       </Form>

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import UserContext from './hooks/userContext';
 import jwt from 'jsonwebtoken';
+import Navigation from './Navigation';
 
 const CURRENT_USER_KEY = 'character-creator-user-token'
 
@@ -47,10 +48,16 @@ function App() {
     }
   }
 
+  function logout() {
+    BackendAPI.token = null;
+    setToken(null);
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{currentUser, setCurrentUser}}>
+          <Navigation logout={logout} />
           <Routes login={login} register={register} />
         </UserContext.Provider>
       </BrowserRouter>

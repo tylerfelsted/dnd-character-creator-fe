@@ -1,9 +1,10 @@
+import { Container } from 'react-bootstrap';
 import AbilityScores from './characterData/AbilityScores';
 import HitPoints from './characterData/HitPoints';
 import Skills from './characterData/Skills';
 
 function RenderCharacter({ character }) {
-  const { name, level, race, armorClass, speed, abilityScores, hitPoints, proficiencies, languages, spells, spellSlots, equipment} = character;
+  const { name, level, race, armorClass, speed, abilityScores, hitPoints } = character;
   const characterClass = character.class;
   const proficiencyBonus = Math.ceil(level/4)+1;
   const abilityModifiers = {};
@@ -13,7 +14,7 @@ function RenderCharacter({ character }) {
   }
 
   return (
-    <>
+    <Container>
       <h1>{name}</h1>
       <div>Level {level} {race} {characterClass}</div>
       <div>Proficiency Bonus: +{proficiencyBonus}</div>
@@ -23,7 +24,7 @@ function RenderCharacter({ character }) {
       <HitPoints hitPoints={hitPoints} />
       <AbilityScores abilityScores={abilityScores} abilityModifiers={abilityModifiers}/>
       <Skills abilityModifiers={abilityModifiers}/>
-    </>
+    </Container>
   )
 }
 

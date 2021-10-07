@@ -34,6 +34,10 @@ class BackendAPI {
     return res.characterId;
   }
 
+  static async deleteCharacter(userId, characterId) {
+    await this.request(`users/${userId}/characters/${characterId}`, {}, "delete");
+  }
+
   static async register(data) {
     const res = await this.request(`users/register/`, data, "post");
     return res.token;

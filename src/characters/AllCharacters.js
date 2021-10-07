@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../hooks/userContext';
 import BackendAPI from '../api/backendAPI';
 import CharacterThumbnail from './CharacterThumbnail';
+import { Container } from 'react-bootstrap';
 
 function AllCharacters() {
   const { currentUser } = useContext(UserContext);
@@ -27,11 +28,11 @@ function AllCharacters() {
   if(!characters) return 'loading...'
 
   return (
-    <>
+    <Container>
       {characters.map(c => (
         <CharacterThumbnail key={c._id} character={c}/>
       ))}
-    </>
+    </Container>
   )
 
 
