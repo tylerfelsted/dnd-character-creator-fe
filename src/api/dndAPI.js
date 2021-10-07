@@ -1,3 +1,6 @@
+//class used to connedct to the dnd5e api.
+//Used to get race and class information during character creation
+
 import axios from 'axios';
 
 const BASE_URL = "https://www.dnd5eapi.co"

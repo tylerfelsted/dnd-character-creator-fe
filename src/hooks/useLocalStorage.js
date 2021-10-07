@@ -1,3 +1,5 @@
+//hook for reading and writing to localStorage
+
 import { useState, useEffect } from 'react';
 
 function useLocalStorage(key) {

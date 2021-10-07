@@ -1,3 +1,5 @@
+//Class used to connect to the backend. Contains methods for creating, reading, updating, and deleting data on the backend.
+
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";

@@ -1,3 +1,5 @@
+//Helper component to improve readablility of forms
+
 import { Form } from 'react-bootstrap';
 
 function Input({ id, label, type, value, handleChange }) {
