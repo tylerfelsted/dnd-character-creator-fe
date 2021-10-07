@@ -5,7 +5,7 @@ const BASE_URL = "https://www.dnd5eapi.co"
 
 class DndAPI {
   static async request(endpoint) {
-    const url = `${BASE_URL}/${endpoint}`;
+    const url = `${BASE_URL}${endpoint}`;
 
     try {
       return (await axios.get(url)).data;
@@ -16,3 +16,5 @@ class DndAPI {
     }
   }
 }
+
+export default DndAPI;

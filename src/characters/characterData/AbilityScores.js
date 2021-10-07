@@ -5,6 +5,9 @@ function AbilityScores({abilityScores}) {
   return (
     <Container>
       <Row>
+        AbilityScores:
+      </Row>
+      <Row>
         <Col>
           <Row>Strength: {str}</Row>
           <Row>Modifier: {Math.floor((str - 10)/2)}</Row>

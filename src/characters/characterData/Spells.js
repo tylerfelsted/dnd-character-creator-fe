@@ -1,4 +1,4 @@
-function Spells({spells, spellSlots}) {
+function Spells({lookUpSpell, spells, spellSlots}) {
   const spellLevels = Object.keys(spells);
 
   return (
