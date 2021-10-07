@@ -1,9 +1,5 @@
 import AbilityScores from './characterData/AbilityScores';
 import HitPoints from './characterData/HitPoints';
-import Proficiencies from './characterData/Proficiencies';
-import Languages from './characterData/Languages';
-import Spells from './characterData/Spells';
-import Equipment from './characterData/Equipment';
 import Skills from './characterData/Skills';
 
 function RenderCharacter({ character }) {
@@ -22,15 +18,11 @@ function RenderCharacter({ character }) {
       <div>Level {level} {race} {characterClass}</div>
       <div>Proficiency Bonus: +{proficiencyBonus}</div>
       <div>Armor Class: {armorClass}</div>
-      <div>Initiative: +{abilityModifiers.dex}</div>
+      <div>Initiative: {(abilityModifiers.dex > 0) ? '+' : ''}{abilityModifiers.dex}</div>
       <div>Speed: {speed}ft</div>
       <HitPoints hitPoints={hitPoints} />
       <AbilityScores abilityScores={abilityScores} abilityModifiers={abilityModifiers}/>
-      <Proficiencies proficiencies={proficiencies} />
-      <Languages languages={languages} />
-      <Spells spells={spells} spellSlots={spellSlots} />
-      <Equipment equipment={equipment} />
-      <Skills abilityModifiers={abilityModifiers} proficiencies={proficiencies.skills} proficiencyBonus={proficiencyBonus}/>
+      <Skills abilityModifiers={abilityModifiers}/>
     </>
   )
 }

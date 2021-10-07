@@ -34,7 +34,7 @@ function Skills({ abilityScores, abilityModifiers, proficiencies, proficiencyBon
       <ul>
         {skills.map(s => {
 
-          return <li key={s.index}>{s.name}: {(proficiencies.indexOf(s.name.toLowerCase()) !== -1) ? abilityModifiers[s.ability] + proficiencyBonus : abilityModifiers[s.ability]}</li>
+          return <li key={s.index}>{s.name}: {abilityModifiers[s.ability]}</li>
         })}
       </ul>
     </div>

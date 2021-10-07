@@ -20,7 +20,7 @@ function Home() {
       </Row>
       <Row className="justify-content-center">
         <Col md="auto"><Button as={NavLink} to="/characters">View Characters</Button></Col>
-        <Col md="auto"><Button as={NavLink} to="/register">Create New Character</Button></Col>
+        <Col md="auto"><Button as={NavLink} to="/characters/new">Create New Character</Button></Col>
       </Row>
       </Container>
     )

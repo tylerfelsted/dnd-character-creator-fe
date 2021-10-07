@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginForm from './auth/LoginForm';
 import RegisterForm from './auth/RegisterForm';
+import CreateCharacter from './characterCreation/CreateCharacter';
 import AllCharacters from './characters/AllCharacters';
 import CharacterDetails from './characters/CharacterDetails';
 import Home from './Home';
@@ -20,6 +21,9 @@ function Routes({ login, register }) {
       </Route>
       <Route exact path='/characters'>
         <AllCharacters />
+      </Route>
+      <Route exact path='/characters/new'>
+        <CreateCharacter />  
       </Route>
       <Route exact path='/characters/:characterId'>
         <CharacterDetails />

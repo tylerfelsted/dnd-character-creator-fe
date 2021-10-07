@@ -29,6 +29,11 @@ class BackendAPI {
     return res.character;
   }
 
+  static async createCharacter(userId, characterData) {
+    const res = await this.request(`users/${userId}/characters`, characterData, "post");
+    return res.characterId;
+  }
+
   static async register(data) {
     const res = await this.request(`users/register/`, data, "post");
     return res.token;
