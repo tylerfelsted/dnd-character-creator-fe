@@ -1,6 +1,6 @@
 # Dnd 5e Character Creator
 
-This project is deployed at 
+This project is deployed at  http://ajar-tail.surge.sh/
 
 ## Available Scripts
 
